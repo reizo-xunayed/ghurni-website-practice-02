@@ -1,0 +1,337 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container */
+.container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top white bar behind logo */
+.top-bar {
+    position: absolute;
+    margin-top: 17px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    background-color: white;
+    z-index: 1; /* behind logo */
+}
+
+/* Header */
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 10; /* above white bar */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    height: 80px;
+    z-index: 2;
+    margin-left: 20px; 
+}
+
+/* Hamburger menu icon */
+.menu-icon {
+    display: flex;
+    margin-right: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 2px;
+}
+/* Sliding menu */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #67c2ffa1;
+    color: rgb(0, 0, 0);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding-top: 200px; /* spacing below header */
+}
+
+/* Menu items */
+.slide-menu ul {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.slide-menu ul li {
+    margin-bottom: 25px;
+}
+
+.slide-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.slide-menu ul li a:hover {
+    color: #082c36;
+}
+
+/* Active state — slide in */
+.slide-menu.active {
+    right: 0;
+}
+
+/* Hamburger icon hover effect */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 2px;
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center hero content horizontally and vertically */
+    background: linear-gradient(to bottom, #87CEEB 0%, #ffffff 100%);
+    overflow:hidden; 
+    padding-top: 40px; /* space for fixed header + top bar */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+}
+
+.hero-text {
+    max-width: 800px;
+    text-align: center; /* center text horizontally */
+}
+
+.text-hero-h1-1 {
+    font-size: 70px;
+    font-weight: bold;
+
+    /* Gradient background */
+    background: linear-gradient(90deg, #c72cc7, #eb6ee3, #00c6ff, #0072ff);
+    background-size: 300% 100%;   /* make it wider for animation */
+
+    /* Show gradient only inside text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    display: inline-block;
+    animation: gradientMove 7s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.text-hero-h1-2 {
+    font-size: 60px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+/* Dot loader animation */
+.dot-loader {
+    display: inline-block;
+    font-weight: bold;
+    color: #000000;  
+    margin-left:1pxpx; 
+    position: relative;
+    width: 20px;
+}
+
+.dot-loader::after {
+    content: '.';
+    animation: dots 3s steps(3, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}
+
+
+.hero-text p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+}
+
+
+
+/* Hero fade at bottom */
+.hero-fade {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+}
+
+
+.sustainability-section {
+    background-color: #ffffff;
+    padding: 100px 20px;
+}
+
+.sustainability-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sustainability-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #111334;
+}
+
+.sustainability-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 60px;
+}
+
+/* Two-column blocks */
+.sustainability-blocks {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sustainability-block {
+    max-width: 380px;
+    text-align: left;
+}
+
+.sustainability-block h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #111334;
+}
+
+.sustainability-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+/* Main section */
+.turbine-section {
+    position: relative;
+    max-height: 800px;
+    min-height: 600px;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,1) 0%,
+            rgba(255,255,255,0.7) 30%,
+            rgba(255,255,255,0) 60%
+        ),
+        url("./bg2.jpg");
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-size:cover;
+    background-color: #87ceeb; /* sky blue base */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Content wrapper */
+.turbine-content {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Text box */
+.turbine-text-box {
+    max-width: 420px;
+    background-color: rgba(255, 255, 255, 0.1); /* 10% transparency */
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+}
+
+/* Text styles */
+.turbine-text-box h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #111334;
+}
+
+.turbine-text-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+

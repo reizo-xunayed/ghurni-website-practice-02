@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghurni Landing Page</title>
+    <link rel="icon" type="image/png" href="./stock images/removed bg/Screenshot 2026-01-12 at 19.00.51-Photoroom.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top white bar -->
+    <div class="top-bar"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <img src="./gb-long.jpg" alt="Ghurni Logo" class="logo">
+            <div class="menu-icon" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="slide-menu" id="slide-menu">
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#product">Our Product</a></li>
+            <li><a href="#news">News & Media</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-fade"></div>
+        <div class="container hero-content">
+            
+            <div class="hero-text">
+                <h1 class="text-hero-h1-1">Technology in Motion,</h1>
+                <h1 class="text-hero-h1-2">Bangladesh in Mind <span class="dot-loader">.</span></h1>
+                <p>Ghurni aims to be a foundational technology company shaping how modern systems endure, evolve, and return value over time.</p>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="sustainability-section">
+    <div class="sustainability-container">
+
+        <h2 class="sustainability-title">
+            Responsibility Beyond Technology
+        </h2>
+
+        <p class="sustainability-intro">
+            Every system we build leaves a footprint. Our responsibility is to ensure that footprint
+            contributes to regeneration rather than depletion.
+        </p>
+
+        <div class="sustainability-blocks">
+
+            <div class="sustainability-block">
+                <h3>Reducing Carbon Footprint</h3>
+                <p>
+                    Technology should endure without exhausting the planet. We design systems
+                    that minimize energy waste, optimize operational efficiency, and reduce
+                    unnecessary emissions across their lifecycle.
+                </p>
+            </div>
+
+            <div class="sustainability-block">
+                <h3>Plastic Responsibility & Recycling</h3>
+                <p>
+                    Plastic waste is a reality we must address, not ignore. Our focus lies in
+                    reducing plastic usage where possible, recovering existing waste, and
+                    enabling recycling systems that return value instead of creating burden.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="turbine-section">
+    <div class="turbine-content">
+        <div class="turbine-text-box">
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam vel dolores nobis tempora.
+            </p>
+        </div>
+    </div>
+</section>
+ 
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const slideMenu = document.getElementById('slide-menu');
+
+    menuToggle.addEventListener('click', () => {
+        slideMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>
