@@ -243,6 +243,10 @@
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    background-color: rgba(115, 131, 107, 0.111);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 12px;
 }
 
 .sustainability-title {
@@ -315,7 +319,7 @@
 
 /* Text box */
 .turbine-text-box {
-    max-width: 420px;
+    max-width: 600px;
     background-color: rgba(255, 255, 255, 0.1); /* 10% transparency */
     padding: 20px;
     border-radius: 8px;
@@ -324,7 +328,7 @@
 
 /* Text styles */
 .turbine-text-box h2 {
-    font-size: 36px;
+    font-size: 48px;
     margin-bottom: 15px;
     color: #111334;
 }
