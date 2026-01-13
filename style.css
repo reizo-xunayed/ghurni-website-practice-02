@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +6,14 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Container */
+
 .container {
     max-width: auto;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Top white bar behind logo */
+
 .top-bar {
     position: absolute;
     margin-top: 17px;
@@ -22,17 +22,16 @@
     width: 100%;
     height: 85px;
     background-color: white;
-    z-index: 1; /* behind logo */
+    z-index: 1; 
 }
 
-/* Header */
 .site-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 0;
-    z-index: 10; /* above white bar */
+    z-index: 10; 
 }
 
 .header-container {
@@ -42,14 +41,12 @@
     position: relative;
 }
 
-/* Logo */
 .logo {
     height: 80px;
     z-index: 2;
     margin-left: 20px; 
 }
 
-/* Hamburger menu icon */
 .menu-icon {
     display: flex;
     margin-right: 30px;
@@ -67,21 +64,19 @@
     background-color: black;
     border-radius: 2px;
 }
-/* Sliding menu */
 .slide-menu {
     position: fixed;
     top: 0;
-    right: -250px; /* hidden by default */
+    right: -250px;
     width: 250px;
     height: 100%;
     background-color: #67c2ffa1;
     color: rgb(0, 0, 0);
     transition: right 0.3s ease;
     z-index: 999;
-    padding-top: 200px; /* spacing below header */
+    padding-top: 200px;
 }
 
-/* Menu items */
 .slide-menu ul {
     list-style: none;
     padding: 0 20px;
@@ -102,12 +97,10 @@
     color: #082c36;
 }
 
-/* Active state — slide in */
 .slide-menu.active {
     right: 0;
 }
 
-/* Hamburger icon hover effect */
 .menu-icon {
     display: flex;
     flex-direction: column;
@@ -126,17 +119,15 @@
     border-radius: 2px;
 }
 
-
-/* Hero Section */
 .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center; /* center hero content horizontally and vertically */
+    justify-content: center;
     background: linear-gradient(to bottom, #87CEEB 0%, #ffffff 100%);
     overflow:hidden; 
-    padding-top: 40px; /* space for fixed header + top bar */
+    padding-top: 40px;
 }
 
 .hero-content {
@@ -148,18 +139,17 @@
 
 .hero-text {
     max-width: 800px;
-    text-align: center; /* center text horizontally */
+    text-align: center; 
 }
 
 .text-hero-h1-1 {
     font-size: 70px;
     font-weight: bold;
 
-    /* Gradient background */
+   
     background: linear-gradient(90deg, #c72cc7, #eb6ee3, #00c6ff, #0072ff);
-    background-size: 300% 100%;   /* make it wider for animation */
+    background-size: 300% 100%;  
 
-    /* Show gradient only inside text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -184,7 +174,7 @@
     color: #000000;
     margin-bottom: 20px;
 }
-/* Dot loader animation */
+
 .dot-loader {
     display: inline-block;
     font-weight: bold;
@@ -222,8 +212,6 @@
 }
 
 
-
-/* Hero fade at bottom */
 .hero-fade {
     position: absolute;
     bottom: 0;
@@ -286,7 +274,7 @@
     line-height: 1.6;
     color: #666;
 }
-/* Main section */
+
 .turbine-section {
     position: relative;
     max-height: 800px;
@@ -308,7 +296,6 @@
     align-items: center;
 }
 
-/* Content wrapper */
 .turbine-content {
     width: 100%;
     max-width: 1200px;
@@ -317,7 +304,6 @@
     z-index: 2;
 }
 
-/* Text box */
 .turbine-text-box {
     max-width: 600px;
     background-color: rgba(255, 255, 255, 0.1); /* 10% transparency */
@@ -326,7 +312,6 @@
     backdrop-filter: blur(4px);
 }
 
-/* Text styles */
 .turbine-text-box h2 {
     font-size: 48px;
     margin-bottom: 15px;
