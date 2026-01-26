@@ -5,34 +5,33 @@
     <meta name="description" content="Ghurni drives sustainable technology innovation in Bangladesh, building systems that endure, evolve, and create lasting value.">
     <title>Ghurni Landing Page</title>
     <link rel="icon" type="image/png" href="./stock images/removed bg/Screenshot 2026-01-12 at 19.00.51-Photoroom.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Top white bar -->
-    <div class="top-bar"></div>
-
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-container">
-            <img src="./gb-long.jpg" alt="Ghurni Logo" class="logo">
-            <div class="menu-icon" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="slide-menu" id="slide-menu">
-        <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#product">Our Product</a></li>
-            <li><a href="#news">News & Media</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
+<header class="header">
+    <div>
+        <img id="site-logo" src="./gb-long-Photoroom.png" alt="">
+    </div>
+    <nav class="navbar">
+        <a href="#Home">Home</a>
+        <a href="#About">About</a>
+        <a href="#Services">Services</a>
+        <a href="#">Contact</a>
     </nav>
-        </div>
-    </header>
+<div class="checkbox-wrapper-5">
+    <p>Dark mode</p>
+  <div class="check">
+    <input id="check-5" type="checkbox" autocomplete="off">
+    <label for="check-5"></label>
+  </div>
+</div>
 
-    <!-- Hero Section -->
+</header>
+
+
     <section class="hero">
         <div class="hero-fade"></div>
         <div class="container hero-content">
@@ -94,12 +93,35 @@
 </section>
  
 <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const slideMenu = document.getElementById('slide-menu');
+const toggle = document.getElementById("check-5");
+const body = document.body;
+const logo = document.getElementById("site-logo");
 
-    menuToggle.addEventListener('click', () => {
-        slideMenu.classList.toggle('active');
-    });
+// Paths to your logos
+const lightLogo = "./gb-long-Photoroom.png";
+const darkLogo = "./longlogo.png";
+
+// Load saved theme on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+    toggle.checked = true;
+    logo.src = darkLogo;
+  } else {
+    body.classList.remove("dark");
+    toggle.checked = false;
+    logo.src = lightLogo;
+  }
+});
+
+// Toggle dark mode and swap logo
+toggle.addEventListener("change", () => {
+  const isDark = toggle.checked;
+  body.classList.toggle("dark", isDark);
+  logo.src = isDark ? darkLogo : lightLogo;
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
 </script>
 </body>
 </html>
