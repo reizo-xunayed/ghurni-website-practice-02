@@ -13,7 +13,8 @@
   --header-text: black;
   --hero-bg: linear-gradient(to bottom, #87CEEB 0%, #ffffff 100%)
   --hero-text-color: #000000;
-  --hero-gradient: linear-gradient(90deg, #c72cc7, #eb6ee3, #00c6ff, #0072ff);
+  --hero-fade-bg:  linear-gradient(rgba(255,255,255,0) 15%, rgba(255,255,255,1) 100%);
+  --hero-gradient: linear-gradient(90deg, #c72cc7, #eb6ee3, #00c6ff, #00617c);
   --sustainability-bg: rgb(255, 255, 255);
   --sustainability-text: #111334;
   --turbine-bg: url("./bg2.jpg");
@@ -29,17 +30,17 @@
 
 /* DARK MODE */
 body.dark {
-  --body-bg: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
+  --body-bg: #051937;
   --header-bg: #c8c0c090;
   --header-text: #ffffff;
-  --hero-bg: linear-gradient(to bottom, #322542, #341165, #26524e, #2d3235);
+  --hero-bg: linear-gradient(to bottom, #051937, #0e315f, #164c8b, #1969ba, #1287eb);
   --hero-text-color: #ffffff;
-  --hero-gradient: linear-gradient(90deg, #bb86fc, #6200ee, #03dac6, #03a9f4);
-  --sustainability-bg: linear-gradient(
-      to top,
-      rgba(30,30,30,1) 0%,
-      rgba(30,30,30,0.7) 30%,
-      rgba(30,30,30,0) 60%
+  --hero-fade-bg: linear-gradient(rgba(50,50,50,0) 0%, rgba(50,50,50,1) 100%);
+  --hero-gradient: linear-gradient(90deg, #bb86fc, #d646cf, #03dac6, #03a9f4);
+  --sustainability-bg:linear-gradient(
+        to bottom,
+        #322542 0%,          /* solid color at top */
+        #ffffff 100%         /* fade to the starting color of the next section */
     );
   --sustainability-text: #e0e0e0;
   --turbine-bg: url("./bg2.jpg"); /* optional dark version */
@@ -57,14 +58,15 @@ body {
     margin: 0;
     padding: 0;
     background: var(--body-bg);
-    transition: background 0.5s ease;
+    transition: background 0.3s ease;
 }
+
 
 .header{
     margin: 25px auto 0px;
     background-color: var(--header-bg);
     color: var(--header-text);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     backdrop-filter: blur(10px);
     width: 1200px;
     height: 80px;
@@ -96,7 +98,7 @@ body {
 .navbar a {
     text-decoration: none;
     color: var(--header-text);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
     font-size: 18px;
     font-weight: 400;
 }
@@ -215,7 +217,7 @@ body {
     align-items: center;
     justify-content: center;
     background: var(--hero-bg);
-    transition: background 0.5s ease;
+    transition: background 0.3s ease;
     overflow:hidden; 
     padding-top: 20px;
 }
@@ -240,14 +242,14 @@ body {
 
    
     background: var(--hero-gradient);
-    transition: background 0.5s ease;
+    transition: background 0.3s ease;
     background-size: 300% 100%;  
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
     display: inline-block;
-    animation: gradientMove 7s linear infinite;
+    animation: gradientMove 3s linear infinite;
 }
 
 @keyframes gradientMove {
@@ -265,7 +267,7 @@ body {
 .text-hero-h1-2 {
     font-size: 78px;
     color: var(--hero-text-color);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
     margin: 0px;
     padding-bottom: 0px;
 }
@@ -274,7 +276,7 @@ body {
     display: inline-block;
     font-weight: bold;
     color:var(--hero-text-color);  
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
     margin-left:1pxpx; 
     position: relative;
     width: 20px;
@@ -304,7 +306,7 @@ body {
 .hero-text p {
     font-size: 18px;
     color: var(--hero-text-color);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
     line-height: 1.5;
 }
 
@@ -314,14 +316,66 @@ body {
     bottom: 0;
     width: 100%;
     height: 120px;
-    background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: var(--hero-fade-bg);
     pointer-events: none;
+}
+.weather-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 180px;
+  background: linear-gradient(145deg, rgba(46, 202, 246, 0.85), rgba(24, 119, 208, 0.85));
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 8px;
+  color: #000;
+  font-family: "Jura", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: background 0.4s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+body.dark .weather-card {
+  background: linear-gradient(145deg, rgba(50,50,50,0.85), rgba(30,30,30,0.85));
+  color: #fff;
+}
+
+.weather-card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, rgba(187,134,252,0.85), rgba(3,218,198,0.85));
+}
+
+.weather-summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.other-cities {
+  margin-top: 10px;
+  font-size: 14px;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  line-height: 1.3;
+}
+
+.weather-card:hover .other-cities {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.other-cities p {
+  margin: 3px 0;
 }
 
 
 .sustainability-section {
     background-color: var(--sustainability-bg);
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
     padding: 100px 20px;
 }
 
@@ -330,7 +384,7 @@ body {
     margin: 0 auto;
     text-align: center;
     background-color: var(--sustainability-bg);
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
     backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 12px;
@@ -340,7 +394,7 @@ body {
     font-size: 42px;
     margin-bottom: 20px;
     color: var(--sustainability-text);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .sustainability-intro {
@@ -367,14 +421,14 @@ body {
     font-size: 22px;
     margin-bottom: 15px;
     color: var(--sustainability-text);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .sustainability-block p {
     font-size: 16px;
     line-height: 1.6;
     color: var(--sustainability-text);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .turbine-section {
@@ -391,7 +445,7 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    transition: background 0.5s ease;
+    transition: background 0.3s ease;
 }
 
 .turbine-content {
@@ -409,20 +463,25 @@ body {
     padding: 20px;
     border-radius: 8px;
     backdrop-filter: blur(4px);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .turbine-text-box h2 {
     font-size: 48px;
     margin-bottom: 15px;
     color: var(--turbine-text-color);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .turbine-text-box p {
     font-size: 16px;
     line-height: 1.6;
     color: var(--turbine-text-color);
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
+.team-title{
+    text-align: center;
+    font-size: 42px;
+    color: wheat;
+}

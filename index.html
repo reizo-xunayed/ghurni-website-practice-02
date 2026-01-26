@@ -42,6 +42,19 @@
                 <p>Ghurni aims to be a foundational technology company shaping how modern systems endure, evolve, and return value over time.</p>
             </div>
         </div>
+        <div class="weather-card" id="weather-card">
+         <div class="weather-summary">
+           <span class="weather-city" id="weather-city">Dhaka</span>
+           <span class="weather-temp" id="weather-temp">--°C</span>
+        </div>
+        <div class="other-cities" id="other-cities">
+         <p id="ctg">Chattogram: --°C</p>
+         <p id="syl">Sylhet: --°C</p>
+         <p id="raj">Rajshahi: --°C</p>
+         <p id="ran">Rangpur: --°C</p>
+         <p id="bar">Barishal: --°C</p>
+       </div>
+    </div>
     </section>
 
    
@@ -91,7 +104,25 @@
         </div>
     </div>
 </section>
- 
+
+ <section class="">
+    <h1 class="team-title">Meet The Team</h1>
+    <div>
+     <img src="" alt="">
+     <h2></h2>
+     <p></p>
+    </div>
+    <div>
+    <img src="" alt="">
+    <h2></h2>
+    <p></p>
+    </div>
+    <div>
+    <img src="" alt="">
+    <h2></h2>
+    <p></p>
+    </div>
+ </section>
 <script>
 const toggle = document.getElementById("check-5");
 const body = document.body;
@@ -123,5 +154,7 @@ toggle.addEventListener("change", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 </script>
+<script src="weather.js"></script>
+
 </body>
 </html>
